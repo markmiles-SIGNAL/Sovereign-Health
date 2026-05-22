@@ -1,506 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title></title>
-  <style>
-    :root {
-      --navy: #04173f;
-      --navy-2: #071c46;
-      --aqua: #35d6ce;
-      --white: #f5f7fa;
-      --light: #d6dde8;
-      --text: #0b1630;
-      --muted: #5a6b88;
-      --soft: #f7fafc;
-      --line: #d9e2f2;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sovereign Health — AiTHOS</title>
+<style>
+  :root{
+    --navy:#04173f; --navy-2:#071c46; --navy-3:#0a2356;
+    --aqua:#35d6ce; --aqua-soft:rgba(53,214,206,.12);
+    --light:#d6dde8; --text:#0b1630; --muted:#5a6b88; --soft:#f7fafc;
+    --line:#e1e7f0; --gold:#c9a24b;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff;line-height:1.6;}
+  h1,h2,h3{margin:0;font-family:Georgia,"Times New Roman",serif;line-height:1.15;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+  .section{padding:74px 0;}
+  .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--aqua);}
 
-    * { box-sizing: border-box; }
+  /* HERO */
+  .hero{background:radial-gradient(circle at 80% 12%,rgba(53,214,206,.18),transparent 26%),linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff;text-align:center;padding:96px 22px 86px;}
+  .hero .eyebrow{color:rgba(53,214,206,.9);}
+  .hero-logo{width:min(360px,80vw);display:block;margin:0 auto 8px;}
+  .hero h1{font-size:clamp(42px,7vw,76px);color:#fff;margin:14px 0 0;}
+  .hero .lede{max-width:760px;margin:22px auto 0;color:var(--light);font-size:clamp(17px,2.2vw,20px);}
+  .hero .tagline{margin:18px auto 0;color:var(--aqua);font-style:italic;font-size:clamp(18px,2.4vw,24px);font-family:Georgia,serif;}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: #fff;
-      line-height: 1.55;
-    }
+  /* INTRO */
+  .intro{text-align:center;}
+  .intro .eyebrow{display:block;}
+  .intro h2{font-size:clamp(28px,3.6vw,40px);color:var(--navy);max-width:780px;margin:12px auto 0;}
+  .intro p.lead{font-size:18px;color:var(--muted);max-width:680px;margin:16px auto 0;}
+  .principle-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px;text-align:left;}
+  .principle{border:1px solid var(--line);border-radius:20px;padding:26px;background:var(--soft);}
+  .principle .ico{width:48px;height:48px;margin-bottom:14px;}
+  .principle h3{font-size:19px;color:var(--navy);}
+  .principle p{font-size:15px;color:var(--muted);margin-top:8px;}
 
-    h1, h2, h3, h4 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.12;
-    }
+  /* SYSTEM MAP */
+  .map{background:var(--navy);color:#fff;text-align:center;}
+  .map .eyebrow{color:rgba(53,214,206,.9);}
+  .map h2{font-size:clamp(28px,3.6vw,40px);color:#fff;margin-top:12px;}
+  .map p.sub{color:var(--light);max-width:680px;margin:14px auto 0;font-size:17px;}
+  .map-figure{margin-top:40px;}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+  /* COMPONENTS */
+  .components h2{font-size:clamp(28px,3.6vw,40px);color:var(--navy);text-align:center;}
+  .components .sub{text-align:center;color:var(--muted);max-width:680px;margin:14px auto 0;font-size:17px;}
+  .comp{display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:start;margin-top:40px;padding:30px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 8px 28px rgba(4,23,63,.05);}
+  .comp .art{width:120px;height:120px;}
+  .comp .num{font-family:Georgia,serif;font-size:14px;color:var(--aqua);font-weight:700;letter-spacing:.1em;}
+  .comp h3{font-size:24px;color:var(--navy);margin-top:4px;}
+  .comp .role{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 11px;border-radius:20px;}
+  .role.active{background:var(--aqua-soft);color:#0c7a73;}
+  .role.future{background:#eef0f4;color:#5a6b88;}
+  .comp p{font-size:16px;color:var(--text);margin-top:14px;}
+  .comp .analogy{margin-top:12px;font-size:14.5px;color:var(--muted);font-style:italic;border-left:3px solid var(--aqua);padding-left:14px;}
 
-    .section {
-      padding: 76px 20px;
-    }
+  /* ARCHITECTURE (four quadrants around patient) */
+  .arch{background:var(--navy);color:#fff;text-align:center;}
+  .arch-eyebrow{color:#8B9DDB;display:block;}
+  .arch-h2{font-size:clamp(28px,3.8vw,42px);color:#fff;margin:12px auto 0;max-width:760px;}
+  .arch-sub{color:var(--light);max-width:640px;margin:14px auto 0;font-size:17px;}
+  .arch-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:200px 320px;margin:54px auto 0;max-width:940px;justify-items:stretch;align-items:stretch;text-align:left;}
+  .quad{display:flex;}
+  .qcard{position:relative;width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);border-top:3px solid var(--accent);border-radius:10px;padding:20px 22px;}
+  .qhead{display:flex;justify-content:space-between;align-items:center;}
+  .qeyebrow{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;}
+  .qtag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:3px 9px;border-radius:20px;}
+  .qtag.active{background:rgba(79,182,166,.16);color:#7fd8c8;}
+  .qtag.future{background:rgba(255,255,255,.08);color:#aab4c7;}
+  .qcard h3{font-size:22px;color:#fff;margin-top:12px;font-family:Georgia,serif;}
+  .qcard p{font-size:14.5px;color:var(--light);margin-top:10px;line-height:1.5;}
+  .patient-node{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;}
+  .patient-circle{width:172px;height:172px;border-radius:50%;background:var(--navy-2);border:1.5px solid rgba(255,255,255,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+  .pn-title{font-weight:700;letter-spacing:.04em;font-size:18px;color:#fff;}
+  .pn-sub{font-family:Georgia,serif;font-style:italic;color:var(--gold);font-size:18px;margin-top:2px;}
+  .pn-note{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.35;max-width:120px;}
+  .arch-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+  .arch-close{text-align:center;font-style:italic;font-weight:700;color:#fff;margin-top:50px;font-size:clamp(15px,2vw,18px);}
 
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-    }
+  /* WHY */
+  .why{background:var(--soft);}
+  .why h2{font-size:clamp(28px,3.6vw,40px);color:var(--navy);text-align:center;}
+  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:38px;}
+  .why-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;}
+  .why-card h3{font-size:19px;color:var(--navy);display:flex;align-items:center;gap:10px;}
+  .why-card .dot{width:9px;height:9px;border-radius:50%;background:var(--aqua);flex:none;}
+  .why-card p{font-size:15px;color:var(--muted);margin-top:10px;}
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      color: white;
-      background:
-        radial-gradient(circle at top right, rgba(53,214,206,0.18), transparent 18%),
-        radial-gradient(circle at 78% 12%, rgba(99,102,241,0.16), transparent 20%),
-        linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
-      padding: 92px 20px 86px;
-      text-align: center;
-    }
+  /* CLOSE */
+  .close{background:linear-gradient(180deg,var(--navy-2),var(--navy));color:#fff;text-align:center;}
+  .close h2{font-size:clamp(28px,4vw,44px);color:#fff;}
+  .close p{color:var(--light);max-width:640px;margin:16px auto 0;font-size:17px;}
+  .close .tagline{margin-top:26px;color:var(--aqua);font-style:italic;font-family:Georgia,serif;font-size:20px;}
 
-    .hero-logo {
-      width: min(360px, 82vw);
-      margin: 0 auto 32px;
-      display: block;
-    }
+  /* DISCLAIMER + FOOTER */
+  .disclaimer{background:var(--soft);border-top:1px solid var(--line);padding:22px;}
+  .disclaimer p{max-width:940px;margin:0 auto;text-align:center;color:var(--muted);font-size:12.5px;line-height:1.6;}
+  .footer{background:var(--navy);color:var(--light);padding:26px 22px;}
+  .footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:14px;}
 
-    .eyebrow {
-      color: rgba(53,214,206,0.92);
-      font-size: 12px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-
-    .hero h1 {
-      font-size: clamp(40px, 7vw, 72px);
-      color: white;
-    }
-
-    .hero-subhead {
-      margin: 18px auto 0;
-      max-width: 860px;
-      color: var(--aqua);
-      font-size: clamp(20px, 3vw, 30px);
-      font-style: italic;
-    }
-
-    .hero-copy {
-      max-width: 900px;
-      margin: 24px auto 0;
-      color: var(--light);
-      font-size: 18px;
-    }
-
-    .cta-row {
-      margin-top: 34px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      border-radius: 18px;
-      padding: 14px 24px;
-      font-weight: 700;
-      font-size: 15px;
-      transition: transform 0.18s ease, background 0.18s ease, opacity 0.18s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: var(--aqua);
-      color: var(--navy);
-      box-shadow: 0 10px 30px rgba(53,214,206,0.18);
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.05);
-      color: white;
-      backdrop-filter: blur(10px);
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(30px, 4vw, 44px);
-      color: var(--navy);
-    }
-
-    .section-intro {
-      text-align: center;
-      max-width: 760px;
-      margin: 14px auto 0;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .definition-card,
-    .pillar-card,
-    .feature-card,
-    .next-card,
-    .cta-card {
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      box-shadow: 0 8px 24px rgba(4, 23, 63, 0.05);
-    }
-
-    .definition-card {
-      margin-top: 34px;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
-      padding: 34px;
-      text-align: center;
-    }
-
-    .definition-card h3 {
-      color: var(--navy);
-      font-size: 30px;
-    }
-
-    .definition-card p {
-      max-width: 860px;
-      margin: 18px auto 0;
-      font-size: 18px;
-      color: var(--text);
-    }
-
-    .problem-grid,
-    .pillars-grid,
-    .action-grid {
-      display: grid;
-      gap: 18px;
-      margin-top: 34px;
-    }
-
-    .problem-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .pillars-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .action-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .feature-card {
-      padding: 26px;
-      background: var(--soft);
-    }
-
-    .feature-card h3,
-    .pillar-card h3,
-    .next-card h3 {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--aqua);
-      margin-bottom: 10px;
-    }
-
-    .feature-card h4,
-    .pillar-card h4,
-    .next-card h4 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 26px;
-      color: var(--navy);
-    }
-
-    .feature-card p,
-    .pillar-card p,
-    .next-card p {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .architecture {
-      background: var(--soft);
-    }
-
-    .pillar-card {
-      background: white;
-      padding: 28px;
-    }
-
-    .pillars-grid .future {
-      opacity: 0.82;
-      background: #fbfcfe;
-    }
-
-    .small-tag {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(53,214,206,0.12);
-      color: var(--navy);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .bridge {
-      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
-      color: white;
-    }
-
-    .bridge .section-title,
-    .bridge h2,
-    .bridge h4 {
-      color: white;
-    }
-
-    .bridge .section-intro,
-    .bridge p {
-      color: var(--light);
-    }
-
-    .next-card {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.1);
-      padding: 28px;
-    }
-
-    .cta-wrap {
-      text-align: center;
-    }
-
-    .cta-card {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 40px 28px;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
-    }
-
-    .cta-card h2 {
-      font-size: clamp(30px, 4vw, 42px);
-      color: var(--navy);
-    }
-
-    .cta-card p {
-      max-width: 720px;
-      margin: 16px auto 0;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .footer {
-      background: var(--navy);
-      color: var(--light);
-      padding: 28px 20px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-size: 14px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 1024px) {
-      .problem-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .pillars-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .action-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero {
-        padding-top: 72px;
-        padding-bottom: 68px;
-      }
-
-      .pillars-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 58px 18px;
-      }
-
-      .hero-copy,
-      .section-intro,
-      .definition-card p,
-      .feature-card p,
-      .pillar-card p,
-      .next-card p,
-      .cta-card p {
-        font-size: 16px;
-      }
-    }
-  </style>
+  @media (max-width:820px){
+    .principle-row{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .comp{grid-template-columns:1fr;gap:18px;}
+    .comp .art{width:96px;height:96px;}
+    .arch-grid{grid-template-columns:1fr;gap:16px;}
+    .arch-lines{display:none;}
+    .patient-node{position:static;transform:none;order:2;display:flex;justify-content:center;margin:4px 0;}
+    .q-tl{order:1;} .q-tr{order:3;} .q-bl{order:4;} .q-br{order:5;}
+    .patient-circle{width:148px;height:148px;}
+  }
+</style>
 </head>
 <body>
-  <section class="hero">
-    <div class="container">
-      <img src="./Aithos_Logo.png" alt="AiTHOS logo" class="hero-logo" />
-      <h1>What is Sovereign Health?</h1>
-      <div class="hero-subhead">
-        A healthcare model in which the patient has aligned representation,
-        organized health context, and a system designed to serve them as principal.
-      </div>
-      <div class="cta-row">
-        <a href="#architecture" class="btn btn-primary">See How It Works</a>
-        <a href="https://markmiles-signal.github.io/healthograph-landing-page/#enroll" class="btn btn-secondary">Build Your Healthograph</a>
-      </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Why It Matters</h2>
-      <p class="section-intro">
-        A patient-directed model is the next evolution in medical care delivery.
-      </p>
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <img src="Aithos_Logo.png" alt="AiTHOS Sovereign Health" class="hero-logo" />
+    <p class="tagline">The patient is the protagonist. AiTHOS is the architect.</p>
+    <p class="lede">A new way to organize health care: your health story belongs to you, and a trusted system helps you understand it and act on it.</p>
+  </div>
+</header>
 
-      <div class="problem-grid">
-        <div class="feature-card">
-          <h3>Fragmentation</h3>
-          <h4>No one holds the full picture</h4>
-          <p>
-            Records, tests, notes, medications, and lived history are scattered
-            across different institutions and encounters.
-          </p>
-        </div>
-        <div class="feature-card">
-          <h3>Representation</h3>
-          <h4>No one is continuously aligned to the patient</h4>
-          <p>
-            Clinicians act within encounters. Payers act within rules. Families
-            often carry the burden by default.
-          </p>
-        </div>
-        <div class="feature-card">
-          <h3>Decision quality</h3>
-          <h4>Important decisions happen without full context</h4>
-          <p>
-            When information is incomplete, it becomes harder to prepare, ask the
-            right questions, and move forward with confidence.
-          </p>
-        </div>
+<!-- INTRO / PRINCIPLES -->
+<section class="section intro">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--aqua);">The idea</div>
+    <h2>Most health systems are built around institutions. This one is built around you.</h2>
+    <p class="lead">When you face a complex diagnosis, your information is scattered and the decisions are overwhelming — and no one is clearly on your side. Sovereign Health changes that, with a trusted guide and a clear picture to navigate what comes next.</p>
+
+    <div class="principle-row">
+      <div class="principle">
+        <svg class="ico" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="16" r="9" stroke="#04173f" stroke-width="2.2"/><path d="M9 41c0-8 6.7-13 15-13s15 5 15 13" stroke="#35d6ce" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <h3>You are the principal</h3>
+        <p>Everything is organized to serve you — not an institution, insurer, or product. Your interests come first.</p>
+      </div>
+      <div class="principle">
+        <svg class="ico" viewBox="0 0 48 48" fill="none"><path d="M24 6l15 7v9c0 9-6 16-15 20-9-4-15-11-15-20v-9l15-7z" stroke="#04173f" stroke-width="2.2" stroke-linejoin="round"/><path d="M17 24l5 5 9-10" stroke="#35d6ce" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Inform, never direct</h3>
+        <p>Sovereign Health helps you and your doctors see clearly. It never replaces medical judgment or makes decisions for you.</p>
+      </div>
+      <div class="principle">
+        <svg class="ico" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="#04173f" stroke-width="2.2"/><path d="M24 10v14l9 6" stroke="#35d6ce" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Time matters</h3>
+        <p>Complex disease moves on its own clock. Understanding where you are — and what's changing — helps you act in time.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section architecture" id="architecture">
-    <div class="container">
-      <h2 class="section-title">AiTHOS makes Sovereign Health a reality</h2>
-      <p class="section-intro">
-        Each part of the system serves a purpose.
-      </p>
+<!-- ARCHITECTURE (four parts around the patient) -->
+<section class="section arch">
+  <div class="wrap">
+    <div class="eyebrow arch-eyebrow">The architecture</div>
+    <h2 class="arch-h2">Everything is built around one principal: the patient.</h2>
+    <p class="arch-sub">AiTHOS is a fiduciary structure in four parts — and every part exists to serve that one relationship.</p>
 
-      <div class="pillars-grid">
-        <div class="pillar-card">
-          <h3>Patient-as-Principal</h3>
-          <h4>The core shift</h4>
-          <p>
-            The patient is no longer a bystander in care. They become the party around whom the system is organized.
-          </p>
-        </div>
-
-        <div class="pillar-card">
+    <div class="arch-grid">
+      <svg class="arch-lines" viewBox="0 0 940 620" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="340" y1="200" x2="470" y2="310" stroke="#6E86A8" stroke-width="1" opacity=".5"/>
+        <line x1="600" y1="200" x2="470" y2="310" stroke="#6E86A8" stroke-width="1" opacity=".5"/>
+        <line x1="340" y1="430" x2="470" y2="310" stroke="#6E86A8" stroke-width="1" opacity=".5"/>
+        <line x1="600" y1="430" x2="470" y2="310" stroke="#6E86A8" stroke-width="1" opacity=".5"/>
+      </svg>
+      <!-- top-left: Health Fiduciary -->
+      <div class="quad q-tl">
+        <div class="qcard" style="--accent:#4FB6A6;">
+          <div class="qhead"><span class="qeyebrow" style="color:#4FB6A6;">The steward</span><span class="qtag active">Active</span></div>
           <h3>Health Fiduciary</h3>
-          <h4>The aligned representative</h4>
-          <p>
-            The Health Fiduciary represents the patient’s interests and helps steward their health context over time.
-          </p>
+          <p>Represents the patient as principal in every complex decision.</p>
         </div>
-
-        <div class="pillar-card">
+      </div>
+      <!-- top-right: SAiRA -->
+      <div class="quad q-tr">
+        <div class="qcard" style="--accent:#8B9DDB;">
+          <div class="qhead"><span class="qeyebrow" style="color:#8B9DDB;">The agent</span><span class="qtag active">Active</span></div>
           <h3>SAiRA</h3>
-          <h4>The enabling agent</h4>
-          <p>
-            SAiRA helps gather records, organize context, and make patient-side representation scalable.
-          </p>
+          <p>Enables the health fiduciary to represent one patient across complex disease states.</p>
         </div>
+      </div>
 
-        <div class="pillar-card">
-          <h3>Healthograph</h3>
-          <h4>The patient-owned asset</h4>
-          <p>
-            A Healthograph is the patient’s personal health signature — one organized, usable account of their health story.
-          </p>
+      <!-- center patient node -->
+      <div class="patient-node">
+        <div class="patient-circle">
+          <span class="pn-title">THE PATIENT</span>
+          <span class="pn-sub">as principal</span>
+          <span class="pn-note">every decision runs through them</span>
+        </div>
+      </div>
+
+      <!-- bottom-left: SHN -->
+      <div class="quad q-bl">
+        <div class="qcard" style="--accent:#C9A24B;">
+          <div class="qhead"><span class="qeyebrow" style="color:#C9A24B;">The community</span><span class="qtag future">Future</span></div>
+          <h3>Sovereign Health Network</h3>
+          <p>Connects patients, care teams, and industry sponsors around the principal.</p>
+        </div>
+      </div>
+      <!-- bottom-right: SHF -->
+      <div class="quad q-br">
+        <div class="qcard" style="--accent:#9B8BD0;">
+          <div class="qhead"><span class="qeyebrow" style="color:#9B8BD0;">The economy</span><span class="qtag future">Future</span></div>
+          <h3>Sovereign Health Fund</h3>
+          <p>Returns value created back to the community that generated it.</p>
         </div>
       </div>
     </div>
-  </section>
 
-  <section class="section bridge">
-    <div class="container">
-      <h2 class="section-title">What comes next?</h2>
-      <p class="section-intro">
-        Once the patient and fiduciary are working together, value is unlocked.
-      </p>
+    <p class="arch-close">Other systems put the patient in the room. AiTHOS puts the patient at the center.</p>
+  </div>
+</section>
 
-      <div class="action-grid">
-        <div class="next-card">
-          <h4>Sovereign Health Network</h4>
-          <p>
-            The ecosystem that connects fiduciaries, and care teams around the patient.
-          </p>
-        </div>
-        <div class="next-card">
-          <h4>Sovereign Health Fund</h4>
-          <p>
-            The patient-directed financial mechanism designed to capture and return value to the community that generated it.
-          </p>
-        </div>
-          </p>
-  </section>
-
-  <section class="section cta-wrap" id="next-step">
-    <div class="container">
-      <div class="cta-card">
-        <h2>Want to see Sovereign Health in practice?</h2>
-        <p>
-          Learn how patient-owned context becomes the first practical step toward Sovereign Health.
-        </p>
-        <div class="cta-row" style="margin-top: 28px;">
-          <a href="https://markmiles-signal.github.io/healthograph-landing-page/#enroll" class="btn btn-primary">Build Your Healthograph</a>
-        </div>
-      </div>
+<!-- WHY IT MATTERS -->
+<section class="section why">
+  <div class="wrap">
+    <h2>Why it matters</h2>
+    <div class="why-grid">
+      <div class="why-card"><h3><span class="dot"></span>One clear story</h3><p>Your records, results, and history brought together into a single, understandable picture — instead of scattered across systems.</p></div>
+      <div class="why-card"><h3><span class="dot"></span>A real advocate</h3><p>A trusted guide whose job is to represent your interests, so you're never navigating the hardest decisions alone.</p></div>
+      <div class="why-card"><h3><span class="dot"></span>Better conversations</h3><p>Walk into every appointment prepared, with the right questions and a clear view of where you are in your care.</p></div>
+      <div class="why-card"><h3><span class="dot"></span>Built on trust</h3><p>Governance, safeguards, and a fiduciary commitment keep the system honest — and keep you at the center.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div>Sovereign Health · Powered by AiTHOS</div>
-      <div class="footer-links">
-        <a href="#architecture">How It Works</a>
-        <a href="#">Privacy</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
-  </footer>
+<!-- CLOSE -->
+<section class="section close">
+  <div class="wrap">
+    <div class="eyebrow" style="color:rgba(53,214,206,.9);">The vision</div>
+    <h2>Health care that answers to you.</h2>
+    <p>The shift is simple, and the foundation is being proven today — one person, one clear story, at a time.</p>
+    <p class="tagline">Value returns to the principal.</p>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="disclaimer">
+  <p>Sovereign Health and AiTHOS provide informational support to help patients organize and understand their health information. They do not provide medical advice, diagnosis, or treatment, and do not replace physicians or care teams. Certain components, including the Sovereign Health Network and Sovereign Health Fund, are at varying stages of development; nothing here is an offer or solicitation of any security or investment. <span style="color:#b23b1e;font-weight:700;">[Counsel to confirm final language.]</span></p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>AiTHOS · Sovereign Health</div>
+    <div>Cadence Cove LLC · Confidential</div>
+  </div>
+</footer>
+
 </body>
 </html>
