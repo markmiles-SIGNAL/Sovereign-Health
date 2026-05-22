@@ -18,6 +18,7 @@
     }
 
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -26,16 +27,25 @@
       line-height: 1.55;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
       line-height: 1.12;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    .section { padding: 76px 20px; }
-    .container { max-width: 1180px; margin: 0 auto; }
+    .section {
+      padding: 76px 20px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
 
     .hero {
       position: relative;
@@ -100,12 +110,17 @@
       font-size: 15px;
       transition: transform 0.18s ease, background 0.18s ease, opacity 0.18s ease;
     }
-    .btn:hover { transform: translateY(-1px); }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
     .btn-primary {
       background: var(--aqua);
       color: var(--navy);
       box-shadow: 0 10px 30px rgba(53,214,206,0.18);
     }
+
     .btn-secondary {
       border: 1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.05);
@@ -164,9 +179,17 @@
       margin-top: 34px;
     }
 
-    .problem-grid { grid-template-columns: repeat(3, 1fr); }
-    .pillars-grid { grid-template-columns: repeat(4, 1fr); }
-    .action-grid { grid-template-columns: repeat(3, 1fr); }
+    .problem-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pillars-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .action-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     .feature-card {
       padding: 26px;
@@ -235,9 +258,14 @@
 
     .bridge .section-title,
     .bridge h2,
-    .bridge h4 { color: white; }
+    .bridge h4 {
+      color: white;
+    }
+
     .bridge .section-intro,
-    .bridge p { color: var(--light); }
+    .bridge p {
+      color: var(--light);
+    }
 
     .next-card {
       background: rgba(255,255,255,0.06);
@@ -293,22 +321,42 @@
     }
 
     @media (max-width: 1024px) {
-      .problem-grid { grid-template-columns: 1fr; }
-      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-      .action-grid { grid-template-columns: 1fr; }
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .action-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 640px) {
-      .hero { padding-top: 72px; padding-bottom: 68px; }
-      .pillars-grid { grid-template-columns: 1fr; }
-      .section { padding: 58px 18px; }
+      .hero {
+        padding-top: 72px;
+        padding-bottom: 68px;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 58px 18px;
+      }
+
       .hero-copy,
       .section-intro,
       .definition-card p,
       .feature-card p,
       .pillar-card p,
       .next-card p,
-      .cta-card p { font-size: 16px; }
+      .cta-card p {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
@@ -330,7 +378,7 @@
       </p>
       <div class="cta-row">
         <a href="#architecture" class="btn btn-primary">See How It Works</a>
-        <a href="#next-step" class="btn btn-secondary">Build Your Healthograph</a>
+        <a href="https://markmiles-signal.github.io/healthograph-landing-page/#enroll" class="btn btn-secondary">Build Your Healthograph</a>
       </div>
     </div>
   </section>
@@ -438,7 +486,7 @@
           <h3>SHN</h3>
           <h4>Sovereign Health Network</h4>
           <p>
-            The patient-aligned ecosystem that connects patients, fiduciaries, care teams, and partners around the principal.
+            The patient-directed ecosystem that connects patients, fiduciaries, care teams, and partners around the principal.
           </p>
         </div>
         <div class="next-card">
@@ -467,7 +515,7 @@
           Build your Healthograph to see how patient-owned context becomes the first practical step toward Sovereign Health.
         </p>
         <div class="cta-row" style="margin-top: 28px;">
-          <a href="#" class="btn btn-primary">Build Your Healthograph</a>
+          <a href="https://markmiles-signal.github.io/healthograph-landing-page/#enroll" class="btn btn-primary">Build Your Healthograph</a>
         </div>
       </div>
     </div>
