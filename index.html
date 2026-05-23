@@ -83,11 +83,17 @@
   @media (max-width:820px){
     .principle-row{grid-template-columns:1fr;}
     .why-grid{grid-template-columns:1fr;}
-    .arch-grid{grid-template-columns:1fr;gap:16px;}
+    .section{padding:60px 0;}
+    .arch-grid{display:flex;flex-direction:column;gap:14px;margin-top:38px;}
     .arch-lines{display:none;}
-    .patient-node{position:static;transform:none;order:2;display:flex;justify-content:center;margin:4px 0;}
-    .q-tl{order:1;} .q-tr{order:3;} .q-bl{order:4;} .q-br{order:5;}
-    .patient-circle{width:148px;height:148px;}
+    /* patient circle becomes the anchor at the top */
+    .patient-node{position:static;transform:none;order:0;display:flex;flex-direction:column;align-items:center;margin:0 0 10px;}
+    .patient-circle{width:158px;height:158px;}
+    .patient-node::after{content:"The four parts that serve them";display:block;margin-top:16px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8E9AAA;font-weight:700;}
+    /* cards stack in order below, each full width with a clear left accent */
+    .q-tl{order:1;} .q-tr{order:2;} .q-bl{order:3;} .q-br{order:4;}
+    .qcard{border-top:1px solid rgba(255,255,255,.10);border-left:3px solid var(--accent);border-radius:12px;padding:22px 24px;}
+    .qcard h3{font-size:21px;}
   }
 </style>
 </head>
@@ -207,13 +213,13 @@
 
 <!-- DISCLAIMER -->
 <section class="disclaimer">
-  <p>Sovereign Health and AiTHOS provide informational support to help patients organize and understand their health information. They do not provide medical advice, diagnosis, or treatment, and do not replace physicians or care teams. Certain components, including the Sovereign Health Network and Sovereign Health Fund, are at varying stages of development; nothing here is an offer or solicitation of any security or investment.</p>
+  <p>AiTHOS provides informational support to help patients organize and understand their health information. They do not provide medical advice, diagnosis, or treatment, and do not replace physicians or care teams. Certain components, including the Sovereign Health Network and Sovereign Health Fund, are at varying stages of development; nothing here is an offer or solicitation of any security or investment.</p>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div>Cadence Cove · AiTHOS Division</div>
+    <div>Cadence Cove · AiTHOS</div>
     <div>Confidential</div>
   </div>
 </footer>
