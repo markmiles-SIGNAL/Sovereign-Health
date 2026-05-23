@@ -64,8 +64,9 @@
   .arch-eyebrow{color:#8B9DDB;display:block;}
   .arch-h2{font-size:clamp(28px,3.8vw,42px);color:#fff;margin:12px auto 0;max-width:760px;}
   .arch-sub{color:var(--light);max-width:640px;margin:14px auto 0;font-size:17px;}
-  .arch-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:200px 320px;margin:54px auto 0;max-width:940px;justify-items:stretch;text-align:left;}
-  .qcard{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);border-top:3px solid var(--accent);border-radius:10px;padding:20px 22px;}
+  .arch-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:200px 320px;margin:54px auto 0;max-width:940px;justify-items:stretch;align-items:stretch;text-align:left;}
+  .quad{display:flex;}
+  .qcard{position:relative;width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.10);border-top:3px solid var(--accent);border-radius:10px;padding:20px 22px;}
   .qhead{display:flex;justify-content:space-between;align-items:center;}
   .qeyebrow{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;}
   .qtag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:3px 9px;border-radius:20px;}
@@ -121,7 +122,8 @@
 <header class="hero">
   <div class="wrap">
     <img src="Aithos_Logo.png" alt="AiTHOS Sovereign Health" class="hero-logo" />
-    <p class="lede">A new way to organize healthcare: your health story belongs to you, and a trusted system helps you understand it and act on it.</p>
+    <p class="tagline">The patient is the protagonist. AiTHOS is the architect.</p>
+    <p class="lede">A new way to organize health care: your health story belongs to you, and a trusted system helps you understand it and act on it.</p>
   </div>
 </header>
 
@@ -129,19 +131,19 @@
 <section class="section intro">
   <div class="wrap">
     <div class="eyebrow" style="color:var(--aqua);">The idea</div>
-    <h2>Healthcare built around you.</h2>
-    <p class="lead">When you face a complex diagnosis, your information is scattered and the decisions are overwhelming. AiTHOS changes that, with a trusted guide and a clear picture to navigate what comes next.</p>
+    <h2>Most health systems are built around institutions. This one is built around you.</h2>
+    <p class="lead">When you face a complex diagnosis, your information is scattered and the decisions are overwhelming — and no one is clearly on your side. Sovereign Health changes that, with a trusted guide and a clear picture to navigate what comes next.</p>
 
     <div class="principle-row">
       <div class="principle">
         <svg class="ico" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="16" r="9" stroke="#04173f" stroke-width="2.2"/><path d="M9 41c0-8 6.7-13 15-13s15 5 15 13" stroke="#35d6ce" stroke-width="2.2" stroke-linecap="round"/></svg>
         <h3>You are the principal</h3>
-        <p>Everything is organized to serve you — Your interests come first.</p>
+        <p>Everything is organized to serve you — not an institution, insurer, or product. Your interests come first.</p>
       </div>
       <div class="principle">
         <svg class="ico" viewBox="0 0 48 48" fill="none"><path d="M24 6l15 7v9c0 9-6 16-15 20-9-4-15-11-15-20v-9l15-7z" stroke="#04173f" stroke-width="2.2" stroke-linejoin="round"/><path d="M17 24l5 5 9-10" stroke="#35d6ce" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3>Inform, never direct</h3>
-        <p>Aithos helps you and your care team see clearly. It never replaces medical judgment or makes decisions for you.</p>
+        <p>Sovereign Health helps you and your doctors see clearly. It never replaces medical judgment or makes decisions for you.</p>
       </div>
       <div class="principle">
         <svg class="ico" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="#04173f" stroke-width="2.2"/><path d="M24 10v14l9 6" stroke="#35d6ce" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -220,7 +222,7 @@
     <h2>Why it matters</h2>
     <div class="why-grid">
       <div class="why-card"><h3><span class="dot"></span>One clear story</h3><p>Your records, results, and history brought together into a single, understandable picture — instead of scattered across systems.</p></div>
-      <div class="why-card"><h3><span class="dot"></span>A true advocate</h3><p>A trusted guide whose job is to represent your interests, so you're never navigating the hardest decisions alone.</p></div>
+      <div class="why-card"><h3><span class="dot"></span>A real advocate</h3><p>A trusted guide whose job is to represent your interests, so you're never navigating the hardest decisions alone.</p></div>
       <div class="why-card"><h3><span class="dot"></span>Better conversations</h3><p>Walk into every appointment prepared, with the right questions and a clear view of where you are in your care.</p></div>
       <div class="why-card"><h3><span class="dot"></span>Built on trust</h3><p>Governance, safeguards, and a fiduciary commitment keep the system honest — and keep you at the center.</p></div>
     </div>
@@ -231,7 +233,7 @@
 <section class="section close">
   <div class="wrap">
     <div class="eyebrow" style="color:rgba(53,214,206,.9);">The vision</div>
-    <h2>Healthcare that answers to you.</h2>
+    <h2>Health care that answers to you.</h2>
     <p>The shift is simple, and the foundation is being proven today — one person, one clear story, at a time.</p>
     <p class="tagline">Value returns to the principal.</p>
   </div>
@@ -245,7 +247,7 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div>AiTHOS</div>
+    <div>AiTHOS · Sovereign Health</div>
     <div>Cadence Cove LLC · Confidential</div>
   </div>
 </footer>
